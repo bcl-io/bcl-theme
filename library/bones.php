@@ -137,6 +137,7 @@ function bones_scripts_and_styles() {
     // Enqueue & load CSS
 	wp_enqueue_style('bcl-bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '3.3.2' );
 	wp_enqueue_style('bcl-addl', get_stylesheet_directory_uri() . '/css/bcl.css', array(), '3.3.2');
+	wp_enqueue_style('font-awesome',get_stylesheet_directory_uri() . '/css/font-awesome.min.css',array(),'4.1');
 	
 	
 

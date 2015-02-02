@@ -95,9 +95,9 @@ function showEvents() {
 		// loop over ACF and get involved Person
 		$involvedArray = get_field('involved', $event->ID);
 		foreach ((array)$involvedArray as $involved) {
-			if ($involved == 'Georg') echo '<span class="glyphicon glyphicon-user magenta"></span> ';
-			if ($involved == 'Shiho') echo '<span class="glyphicon glyphicon-user blue"></span> ';
-			if ($involved == 'Yuki') echo '<span class="glyphicon glyphicon-user green"></span> ';
+			if ($involved == 'Georg') echo '<i class="fa fa-user magenta"></i> ';
+			if ($involved == 'Shiho') echo '<i class="fa fa-user blue"></i> ';
+			if ($involved == 'Yuki') echo '<i class="fa fa-user green"></i> ';
 		}
 		
 		if (empty($event->post_content)) { echo "No Content."; } else { echo $event->post_content; }
@@ -174,7 +174,7 @@ function showEvents() {
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">
-				<span class="glyphicon glyphicon-user blue"></span> <strong>Shiho Fukuhara</strong><br />
+				<i class="fa fa-user blue"></i> <strong>Shiho Fukuhara</strong><br />
 				<?php echo get_field('about_shiho'); ?>
 			</div>
 		</div>
@@ -182,7 +182,7 @@ function showEvents() {
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">
-				<span class="glyphicon glyphicon-user magenta"></span> <strong>Georg Tremmel</strong><br />
+				<i class="fa fa-user magenta"></i> <strong>Georg Tremmel</strong><br />
 				<?php echo get_field('about_georg'); ?>
 			</div>
 		</div>
@@ -190,7 +190,7 @@ function showEvents() {
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">
-				<span class="glyphicon glyphicon-user green"></span> <strong>Yuki Yoshioka</strong><br />
+				<i class="fa fa-user green"></i> <strong>Yuki Yoshioka</strong><br />
 				<?php echo get_field('about_yuki'); ?>
 			</div>
 		</div>
@@ -199,9 +199,9 @@ function showEvents() {
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">
-				<span class="glyphicon glyphicon-user magenta"></span>GT &nbsp;&nbsp;&nbsp; 
-				<span class="glyphicon glyphicon-user blue"></span>SF &nbsp;&nbsp;&nbsp; 
-				<span class="glyphicon glyphicon-user green"></span>YY
+				<i class="fa fa-user magenta"></i>&nbsp;GT &nbsp;&nbsp;&nbsp; 
+				<i class="fa fa-user blue"></i>&nbsp;SF &nbsp;&nbsp;&nbsp; 
+				<i class="fa fa-user green"></i>&nbsp;YY
 			</div>
 		</div>
 			
