@@ -1,21 +1,17 @@
-<?php
+				<div id="sidebar" class="pull-right well">
 
-// show contact page, etc
+          <?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
-// exclude those pages
-$pageAZ = get_page_by_title('a-z');
-$pageFront = get_page_by_title('all');
+            <?php dynamic_sidebar( 'sidebar1' ); ?>
 
-$args = array(
-	'sort_order' => 'ASC',
-	'sort_column' => 'menu_order',
-	'exclude' => array($pageAZ->ID, $pageFront->ID)		// exclude a-z from being shown
-);
+          <?php else : ?>
 
-$pages = get_pages($args);
+            <!-- This content shows up if there are no widgets defined in the backend. -->
 
-foreach ($pages as $page) {
-	echo '<a href="' . get_permalink($page->ID) . '">' . $page->post_title . "</a><br />\n";
-}
+            <div class="alert alert-danger">
+              <p><?php _e( 'Please activate some Widgets.', 'bonestheme' );  ?></p>
+            </div>
 
-?>
+          <?php endif; ?>
+
+        </div>

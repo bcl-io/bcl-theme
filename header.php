@@ -1,82 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
+<!doctype html>
+
+<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+
+<head>
 	<meta charset="utf-8">
-	<meta name="description" content="bcl, Georg Tremmel, Shiho Fukuhara, Yuki, Yoshioka">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
-	
-	<!-- Note there is no responsive meta tag here -->
-	<!-- <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
+
+	<?php // Google Chrome Frame for IE ?>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>bcl</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+	<?php /*
+	<?php // mobile meta (hooray!) ?>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	
+	<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png?v=2">
+	<!--[if IE]>
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+	<![endif]-->
+	<?php // or, set /favicon.ico for IE10 win ?>
+	<meta name="msapplication-TileColor" content="#f01d4f">
+	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+	*/ ?>
+	
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+	<!--
 	<script type="text/javascript" src="//use.typekit.net/ncd2orm.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	
-	<link href="<?php echo get_stylesheet_directory_uri() ?>/css/bootstrap.css" rel="stylesheet">
-
-	<?php //replace with custom bootstrap?>
-	<link href="<?php echo get_stylesheet_directory_uri() ?>/css/bcl.css" rel="stylesheet">
-
+	-->
+		
 	<?php wp_head(); ?>
+
+	<?php // drop Google Analytics Here ?>
+
 </head>
-	
+
 <body>
 
-<div id="page">
-
 <div class="container-fluid">
-<nav class="navbar navbar-default" role="navigation">
-
-		
-		<div class="navbar-header">
-			<span class="navbar-brand"><a href="<?php echo site_url(); ?>">bcl</a></span>
-		</div>
-		
-		<div class="collapse navbar-collapse">
-	    
-		<?php
-				$menu_name = 'header-menu';
 	
-		if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
-			$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+	<header>
 
-			$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-			$menuHtml = '<ul class="navbar-nav navbar-right">'."\n";
-
+	    <nav class="navbar">
 			
-			foreach ($menu_items as $key => $m ) {
-				$title = $m->title;
-				$url = $m->url;
-				
-				if ($m->menu_item_parent==0) {
-					if (($post->ID == $m->object_id) OR (is_home() AND $title=="Journal")) {
-						$menuHtml .= "\t\t\t".'<li class="active">' . $title . '</li>'."\n";
-					} else {
-						$menuHtml .= "\t\t\t".'<li><a href="' . $url . '">' . $title . '</a></li>'."\n";
-					}					
-				}
-			}
-			$menuHtml .= "\t\t</ul>\n";	
-		}
-		echo $menuHtml;
-	    // $menu_list now ready to output
-		
-		?>
-		</div>
-		<div class="row visible-xs">
-			<div class="col-xs-12">
-				<ul class="small-list">
-					<li class="active">About</li>
-					<li>Projects</li>
-					<li>Contact</li>
-				</ul>
-			</div>
-		</div>
-</nav>
-</div>
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span>Menu</span>
+	          </button>
+	          <a href="#"><img	src="<?php echo get_template_directory_uri(); ?>/images/bcl-dark.png" width="50px"></a>
+	        </div>
+				  
+	        <div id="navbar" class="navbar-collapse collapse">
+				<?php bones_main_nav(); ?>
+	        </div>
+	      </div>
+	    </nav>
 
-<div class="container-fluid">
-	
+	</header>

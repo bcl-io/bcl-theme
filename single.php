@@ -1,41 +1,64 @@
-<?php
+<?php get_header(); ?>
+      
+    <div class="container">  
 
-get_header(); ?>
+			<div id="content" class="clearfix row">
 
-<div class="left">
-<?php
-// initiates $nextLink, which is needed in addNextLinkToContent() below
-$showCategories = getCategories();
-$showPosts = getPosts();
+				<div id="main" class="col-md-8 clearfix" role="main">
 
-while ( have_posts() ) : the_post();
-	addNextLinkToContent(get_the_content()); 
-	$title = get_the_title();
-	$excerpt = get_the_excerpt();
-endwhile;
+          <!-- UNCOMMENT FOR BREADCRUMBS
+          <?php if ( function_exists('custom_breadcrumb') ) { custom_breadcrumb(); } ?> -->
 
-?>
-</div><!--end left -->
+					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<div class="right">
-<div class="title">
-<a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
-</div><!--end title -->
-<div class="title">
-</div><!--end title -->
-<div class="textcolumn">
-<div class="medianav">
-<?php echo $showCategories; ?>
-</div><!--end medianav -->
-<?php echo $showPosts; ?>
-</div><!--end textcolumn -->
-<div class="textcolumn">
-<span class="projectname"><?php echo $postNumber . ". " . $title; ?>:</span><br />
-<span class="description"><?php echo $excerpt; ?></span>
-<br /><br />
-<a href="<?php echo $nextLink; ?>">next.</a><br />
-<?php get_sidebar(); ?>
-</div><!--end textcolumn -->
-</div><!--end right -->
+						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+							<header class="article-header single-header">
+
+								<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
+								<p class="byline vcard"><?php
+                  printf( __( '<time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), bones_get_the_author_posts_link(), get_the_category_list(', '));
+								?></p>
+
+							</header> <?php // end article header ?>
+
+							<section class="entry-content clearfix" itemprop="articleBody">
+								<?php the_content(); ?>
+							</section> <?php // end article section ?>
+
+							<footer class="article-footer">
+                  <p class="tags"><?php printf( '<span class="">' . __( 'in %1$s&nbsp;&nbsp;', 'bonestheme' ) . '</span>', get_the_category_list(', ') ); ?> <?php the_tags( '<span class="tags-title">' . __( '<i class="icon-tags"></i>', 'bonestheme' ) . '</span> ', ', ', '' ); ?></p>
+
+							</footer> <?php // end article footer ?>
+
+							<?php comments_template(); ?>
+
+						</article> <?php // end article ?>
+
+					<?php endwhile; ?>
+
+					<?php else : ?>
+
+						<article id="post-not-found" class="hentry clearfix">
+								<header class="article-header">
+									<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
+								</header>
+								<section class="entry-content">
+									<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
+								</section>
+								<footer class="article-footer">
+										<p><?php _e( 'This is the error message in the single.php template.', 'bonestheme' ); ?></p>
+								</footer>
+						</article>
+
+					<?php endif; ?>
+
+				</div> <?php // end #main ?>
+
+				<?php get_sidebar(); ?>
+
+			</div> <?php // end #content ?>
+
+    </div> <?php // end ./container ?>
 
 <?php get_footer(); ?>

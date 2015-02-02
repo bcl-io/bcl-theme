@@ -1,47 +1,49 @@
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) : the_post(); ?>
-	
 <div class="page-header">
-	<h1><?php the_title(); ?><? edit_post_link('*'); ?></h1>
+	<h1><?php the_title(); ?></h1>
 </div>
 
-<div class="row ">
-	<div class="col-xs-8">
-		<?php 
-			$previewText = get_field('preview_text', $post->ID);
-			if ($previewText) {
-				echo '<p class="lead">'.$previewText.'</p>'."\n";
-			}
-		?>
-		<?php
-			
-			$image = get_field('preview_image', $page->ID);
-			if ($image) {
-				echo "<p><img src='".$image['sizes']['large']."' width='100%'></p>\n";
-				
-				$caption = $image['caption'];
-				if ($caption) {
-					echo "<div class=\"imagecaption\">$caption</div>\n";
-				}
-			}
-		
-		?>
-	
+<div id="content" class="clearfix row">
+        
+          <div id="main" class="col-xs-12" role="main">
 
-		<?php the_content(); ?>
 
-<!--
-		<blockquote class="pull-left">
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-		  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-		</blockquote>
--->	
-	
-		
-	</div>
-</div>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            
+            <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+              
+              <header>
+                
+                <div class=""><h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1></div>
+              
+              </header> <!-- end article header -->
+            
+              <section class="post_content clearfix" itemprop="articleBody">
+                <?php the_content(); ?>
+            
+              </section> <!-- end article section -->
+              
+              <footer>
+        
+                <?php the_tags('<p class="tags"><span class="tags-title">' . __("Tags","bonestheme") . ':</span> ', ', ', '</p>'); ?>
+                
+              </footer> <!-- end article footer -->
+            
+            </article> <!-- end article -->
+            
+            
+            <?php endwhile; ?>    
+            
+            <?php else : ?>
+            
 
-<?php endif; ?>
+            
+            <?php endif; ?>
+        
+          </div> <!-- end #main -->
+            
+        </div> <!-- end #content -->
+
 
 <?php get_footer(); ?>

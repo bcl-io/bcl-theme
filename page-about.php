@@ -128,17 +128,22 @@ function showEvents() {
 
 ?>
 
-<div class="row about">
-	<div class="hidden-xs col-sm-3 col-md-2 col-lg-2">
+<div class="row">
+	<div class="col-xs-12 page-header">
+		<h1><?php the_title(); ?></h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-3 hidden-xs">
 		<?php wp_nav_menu($args); //  Show Events Menu ?>
 	</div>
-	<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+	<div class="col-sm-9">
 		
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10">
 				<a name="bcl"></a>
-				<h3><?php wp_title(''); ?></h3>
 			</div>
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">

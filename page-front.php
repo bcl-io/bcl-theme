@@ -7,8 +7,6 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : the_post(); ?>
 	
-</div><!-- /container -->
-
 <div class="container-fluid">
 	<div class="bigentry">
 		<h1><?php echo get_the_content();  // no autop... ?></h1>
