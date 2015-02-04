@@ -103,10 +103,9 @@ function showImage($key, $size='medium') {
 // Custom Event Post Type
 add_action( 'init', 'create_event_post_type' );
 
-
 function create_event_post_type() {
 	
-	// Portfilio
+	// Projects
 	register_post_type( 
 		'bcl_projects',
 		array(
@@ -118,24 +117,24 @@ function create_event_post_type() {
 			'has_archive' => true,
 			'public' => true,
 			'rewrite' => array('slug' => 'projects'),
-			'taxonomies' => array('bcl_projcets_type'),
+			'taxonomies' => array('bcl_projcets_category'),
 		//	'exclude_from_search' => true,
-		//	'supports' => array( 'title', 'editor', 'thumbnail' ),
+			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'post-formats' ),
 			'query_var' => true,
 		)
 	);
 	register_taxonomy(
-		'bcl_projcets_type',
+		'bcl_projcets_category',
 		'bcl_projects',
 		array(
-			'label' => __( 'Project Type' ),
+			'label' => __( 'Project Category' ),
 			'rewrite' => array( 'slug' => 'type'),
 			'hierarchical' => true,		// true -> like category, false -> like tags
 			'show_admin_column' => true,
 			'query_var' => true,
 			'labels' => array(
-				'add_new_item' => __( 'Add New Project Type' ),
-				'edit_item' => __( 'Edit Project Type' ),
+				'add_new_item' => __( 'Add New Project Category' ),
+				'edit_item' => __( 'Edit Project Category' ),
 			)
 		)
 	);
