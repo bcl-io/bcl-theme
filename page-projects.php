@@ -21,6 +21,7 @@ get_header(); ?>
 $args = array(
 	'sort_order' => 'DESC',			// newest first
 	'sort_column' => 'post_date',
+	'posts_per_page' => -1, // show all projects
 	'post_type' => 'bcl_projects',
 ); 
 $pages = get_posts($args);
