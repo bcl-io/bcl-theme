@@ -17,40 +17,29 @@ get_header(); ?>
 
 <?php
 
-global $menuPages;
-
-$menuPageIds = "";
-foreach ($menuPages as $name) {
-	$page = get_page_by_title($name);
-	$menuPageIds .= $page->ID . ",";
-}
 
 $args = array(
 	'sort_order' => 'DESC',			// newest first
 	'sort_column' => 'post_date',
-	'exclude' => $menuPageIds,
+	'post_type' => 'bcl_projects',
 ); 
-$pages = get_pages($args);
+$pages = get_posts($args);
+
 
 ?>
 
 <?
-// get all (used) filters dynamically
-// inefficient, but makes sure only used tags are displayed and method not too tied to the backend
-$filters = array();
-foreach ($pages as $page){
-	$project_tags = get_field('project_tags',$page->ID);
-	foreach ($project_tags as $tag){
-		if (in_array($tag->name, $filters) == false){
-			$filters[] = $tag->name;
-		}
-	}
-}
+// get all filters
+
+
+$filters =  get_terms( 'bcl_projcets_category', array(
+ 	'orderby'    => 'name',
+ ) );
 ?>
 
 <div id="projectfilters" class="row">
  <p> <a href="#" data-filter="*">Show All</a>
-  <? foreach ($filters as $filter){ ?><a href="#" data-filter=".<? echo $filter; ?>"><? echo $filter; ?></a>
+  <? foreach ($filters as $filter){ ?><a href="#" data-filter=".<? echo $filter->name; ?>"><? echo $filter->name; ?></a>
 
   <? } ?></p>
 </div>
@@ -66,22 +55,20 @@ foreach ($pages as $page) :
 	$link = get_permalink($page->ID);
 	$title = $page->post_title;
 	
-	$image = get_field('preview_image', $page->ID);
-	$project_tags = get_field('project_tags',$page->ID);
+	$image = get_the_post_thumbnail($page->ID,"attachment",array( 'width' => '100%' ));
+	// only projects with images
+	if (!$image) continue;
+	$project_tags = wp_get_post_terms($page->ID, 'bcl_projcets_category', array("fields" => "all"));
 	$projectfilter = '';
 	foreach ($project_tags as $tag){
 		$projectfilter .= ' '.$tag->name;
-	}
-	// only projects with images
-	if (!$image) continue;
-	$imageHtml = "<img src='".$image['sizes']['small_cinemascope']."' width='100%'>\n";
-	
+	}	
 ?>
 
 <div class="item <? echo $projectfilter?>">
 	<a href="<?php echo $link; ?>">
 		<div class="imgContainer">
-			<?php echo $imageHtml; ?>
+			<?php echo $image; ?>
 		</div>
 	</a>
 </div>
