@@ -33,7 +33,7 @@ $pages = get_posts($args);
 // get all filters
 
 
-$filters =  get_terms( 'bcl_projcets_category', array(
+$filters =  get_terms( 'bcl_projects_category', array(
  	'orderby'    => 'name',
  ) );
 ?>
@@ -59,7 +59,7 @@ foreach ($pages as $page) :
 	$image = get_the_post_thumbnail($page->ID,"attachment",array( 'width' => '100%' ));
 	// only projects with images
 	if (!$image) continue;
-	$project_tags = wp_get_post_terms($page->ID, 'bcl_projcets_category', array("fields" => "all"));
+	$project_tags = wp_get_post_terms($page->ID, 'bcl_projects_category', array("fields" => "all"));
 	$projectfilter = '';
 	foreach ($project_tags as $tag){
 		$projectfilter .= ' '.$tag->name;
