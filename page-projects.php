@@ -34,6 +34,26 @@ $pages = get_pages($args);
 
 ?>
 
+<?
+// get all (used) filters dynamically
+// inefficient, but makes sure only used tags are displayed and method not too tied to the backend
+$filters = array();
+foreach ($pages as $page){
+	$project_tags = get_field('project_tags',$page->ID);
+	foreach ($project_tags as $tag){
+		if (in_array($tag->name, $filters) == false){
+			$filters[] = $tag->name;
+		}
+	}
+}
+?>
+
+<div id="projectfilters" class="row">
+ <p> <a href="#" data-filter="*">Show All</a>
+  <? foreach ($filters as $filter){ ?><a href="#" data-filter=".<? echo $filter; ?>"><? echo $filter; ?></a>
+
+  <? } ?></p>
+</div>
 
 <div id="projects" class="row">
 <?php
@@ -47,14 +67,18 @@ foreach ($pages as $page) :
 	$title = $page->post_title;
 	
 	$image = get_field('preview_image', $page->ID);
-	
+	$project_tags = get_field('project_tags',$page->ID);
+	$projectfilter = '';
+	foreach ($project_tags as $tag){
+		$projectfilter .= ' '.$tag->name;
+	}
 	// only projects with images
 	if (!$image) continue;
 	$imageHtml = "<img src='".$image['sizes']['small_cinemascope']."' width='100%'>\n";
 	
 ?>
 
-<div class="item">
+<div class="item <? echo $projectfilter?>">
 	<a href="<?php echo $link; ?>">
 		<div class="imgContainer">
 			<?php echo $imageHtml; ?>

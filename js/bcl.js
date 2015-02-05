@@ -60,5 +60,12 @@ var updateProjects = function() {
 			}
 		});
 		$(".item").width(w);
+		
+		// filter items on button click
+		$('#projectfilters').on( 'click', 'a', function() {
+		  var filterValue = $(this).attr('data-filter');
+		  $('#projects').isotope({ filter: filterValue });
+		});
 	}
 }
+
