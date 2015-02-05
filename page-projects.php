@@ -56,7 +56,7 @@ foreach ($pages as $page) :
 	$link = get_permalink($page->ID);
 	$title = $page->post_title;
 	
-	$image = get_the_post_thumbnail($page->ID,"attachment",array( 'width' => '100%' ));
+	$image = get_the_post_thumbnail($page->ID,"bcl-preview-4-3",array( 'width' => '100%' ));
 	// only projects with images
 	if (!$image) continue;
 	$project_tags = wp_get_post_terms($page->ID, 'bcl_projects_category', array("fields" => "all"));
