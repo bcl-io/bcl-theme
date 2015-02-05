@@ -117,14 +117,14 @@ function create_event_post_type() {
 			'has_archive' => true,
 			'public' => true,
 			'rewrite' => array('slug' => 'projects'),
-			'taxonomies' => array('bcl_projcets_category'),
+			'taxonomies' => array('bcl_projects_category'),
 		//	'exclude_from_search' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'post-formats' ),
 			'query_var' => true,
 		)
 	);
 	register_taxonomy(
-		'bcl_projcets_category',
+		'bcl_projects_category',
 		'bcl_projects',
 		array(
 			'label' => __( 'Project Category' ),
