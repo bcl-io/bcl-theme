@@ -21,13 +21,14 @@ $(document).ready(function(){
 	*/
 	
 	
-	updateProjects();
 	
 	
 	$(window).resize(function() {
 		console.log("resize", $(window).width());
 		updateProjects();
 	});
+	
+	updateProjects();
 	
 });
 
@@ -51,7 +52,7 @@ var updateProjects = function() {
 		// Isotope
 		var w = Math.floor(p/c);
 	
-	
+		$(".item").width(w);
 		$('#projects').isotope({
 			itemSelector: '.item',
 			layoutMode: 'masonry',
@@ -59,7 +60,16 @@ var updateProjects = function() {
 				columnWidth: w
 			}
 		});
-		$(".item").width(w);
+		
+/*		$('#projects').isotope({
+			itemSelector: '.item',
+			layoutMode: 'fitRows',
+			masonry: {
+				columnWidth: w,
+				rowHeight: 120
+			}
+		});*/
+		
 		
 		// filter items on button click
 		$('#projectfilters').on( 'click', 'a', function() {
