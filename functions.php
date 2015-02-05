@@ -175,8 +175,13 @@ function create_event_post_type() {
 }
 
 
-
-
+// bcl custom image sizes
+add_image_size('bcl-preview-4-3', 640, 480, true);
+add_image_size('bcl-preview-3-2', 720, 480, true);
+add_image_size('bcl-preview-16-9', 640, 360, true);
+add_image_size('bcl-standard-4-3', 1280, 960, true);
+add_image_size('bcl-standard-3-2', 1440, 960, true);
+add_image_size('bcl-standard-16-9', 1280, 720, true);
 
 
 
@@ -252,8 +257,10 @@ require_once( 'library/bones.php' ); // if you remove this, bones will break
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
+/*
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
+*/
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you
