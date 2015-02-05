@@ -68,6 +68,10 @@ foreach ($pages as $page) :
 
 <div class="item <? echo $projectfilter?>">
 	<a href="<?php echo $link; ?>">
+		<div class="imagecaption">
+			<?php echo $title; ?>
+		</div>
+		<div class="imagecurtain"></div>
 		<div class="imgContainer">
 			<?php echo $image; ?>
 		</div>

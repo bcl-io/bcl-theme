@@ -2,14 +2,16 @@ var tempImgSrc;
 
 $(document).ready(function(){
 
-	$(".project-row a").on("mouseover", function() {
-		$(this).find(".imagecaption").css('display', 'block');
-		
+	$("#projects a").hover(function() {
+		// in
+		$(this).find(".imagecaption").fadeIn(200);
+		$(this).find(".imagecurtain").fadeIn(200);
+	}, function() {
+		// out
+		$(this).find(".imagecaption").fadeOut(200);
+		$(this).find(".imagecurtain").fadeOut(200);
 	});
 	
-	$(".project-row a").on("mouseout", function() {
-		$(this).find(".imagecaption").css('display', 'none');
-	});
 	
 	/*
 	.project-row a img:hover {
@@ -53,6 +55,7 @@ var updateProjects = function() {
 		var w = Math.floor(p/c);
 	
 		$(".item").width(w);
+		
 		$('#projects').isotope({
 			itemSelector: '.item',
 			layoutMode: 'masonry',
@@ -61,14 +64,7 @@ var updateProjects = function() {
 			}
 		});
 		
-/*		$('#projects').isotope({
-			itemSelector: '.item',
-			layoutMode: 'fitRows',
-			masonry: {
-				columnWidth: w,
-				rowHeight: 120
-			}
-		});*/
+
 		
 		
 		// filter items on button click
