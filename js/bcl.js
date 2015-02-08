@@ -30,10 +30,14 @@ $(document).ready(function(){
 		updateProjects();
 	});
 	
-	updateProjects();
+//	updateProjects();
+	
 	
 });
 
+$(window).load(function(){
+	updateProjects();
+});
 
 var updateProjects = function() {
 	
