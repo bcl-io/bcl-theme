@@ -52,6 +52,9 @@
   margin-left: auto;
   margin-right: auto; }
 
+@media (max-width: 767px) {
+  #sidebar {
+    display: none; } }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -1552,13 +1555,13 @@ pre {
     clear: both; }
   @media (min-width: 768px) {
     .container {
-      width: 750px; } }
+      width: 100%; } }
   @media (min-width: 992px) {
     .container {
-      width: 970px; } }
+      width: 100%; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px; } }
+      width: 100%; } }
 
 .container-fluid {
   margin-right: auto;

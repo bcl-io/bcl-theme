@@ -5,7 +5,7 @@ $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
-
+$grid-float-breakpoint: 768px;
 
 // Masonery
 
@@ -73,9 +73,23 @@ $brand-danger:          #d9534f !default;
 .orange {
 	color: #E39B16;
 }
+
 // Contact form / input group
-.contact{
+.contact {
 	width:700px;
 	margin-left:auto;
 	margin-right:auto;	
 }
+
+
+// fix container width for blog pages
+$container-sm: 100%;
+$container-md: 100%;
+$container-lg: 100%;
+
+// hide side bar at small sizes:
+@media (max-width: $grid-float-breakpoint - 1) {
+    #sidebar {
+    	display: none;
+    }
+  };
