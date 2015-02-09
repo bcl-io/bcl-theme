@@ -98,6 +98,7 @@ function showEvents() {
 			if ($involved == 'Georg') echo '<i class="fa fa-user magenta"></i> ';
 			if ($involved == 'Shiho') echo '<i class="fa fa-user blue"></i> ';
 			if ($involved == 'Yuki') echo '<i class="fa fa-user green"></i> ';
+			if ($involved == 'Philipp') echo '<i class="fa fa-user orange"></i> ';
 		}
 		
 		if (empty($event->post_content)) { echo "No Content."; } else { echo $event->post_content; }
@@ -162,12 +163,15 @@ function showEvents() {
 				$shihoImage = get_field('shiho_image');
 				$georgImage = get_field('georg_image');
 				$yukiImage = get_field('yuki_image');
+				$philippImage = get_field('philipp_image');
 				?>
 				<img src="<?php echo $shihoImage['sizes']['square500']; ?>" class="shiho" alt="<?php echo $shihoImage['alt']; ?>" width='200px' height='200px' />
 				&nbsp;&nbsp;
 				<img src="<?php echo $georgImage['sizes']['square500']; ?>" class="georg" alt="<?php echo $georgImage['alt']; ?>" width='200px' height='200px' />
 				&nbsp;&nbsp;
 				<img src="<?php echo $yukiImage['sizes']['square500']; ?>" class="yuki" alt="<?php echo $yukiImage['alt']; ?>" width='200px' height='200px' />
+				&nbsp;&nbsp;
+				<img src="<?php echo $philippImage['sizes']['square500']; ?>" class="philipp" alt="<?php echo $philippImage['alt']; ?>" width='200px' height='200px' />
 			</div>
 		</div>
 		
@@ -195,13 +199,22 @@ function showEvents() {
 			</div>
 		</div>
 		
+		<div class="row event">
+			<div class="col-xs-2 text-right date"></div>
+			<div class="col-xs-10 listing">
+				<i class="fa fa-user red"></i> <strong>Philipp Boeing</strong><br />
+				<?php echo get_field('about_philipp'); ?>
+			</div>
+		</div>
+		
 		<?php showEvents(); // Show Events ?>
 		<div class="row event">
 			<div class="col-xs-2 text-right date"></div>
 			<div class="col-xs-10 listing">
 				<i class="fa fa-user magenta"></i>&nbsp;GT &nbsp;&nbsp;&nbsp; 
 				<i class="fa fa-user blue"></i>&nbsp;SF &nbsp;&nbsp;&nbsp; 
-				<i class="fa fa-user green"></i>&nbsp;YY
+				<i class="fa fa-user green"></i>&nbsp;YY &nbsp;&nbsp;&nbsp; 
+				<i class="fa fa-user red"></i>&nbsp;PB
 			</div>
 		</div>
 			
