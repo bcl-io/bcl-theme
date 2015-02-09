@@ -88,8 +88,15 @@ $container-md: 100%;
 $container-lg: 100%;
 
 // hide side bar at small sizes:
-@media (max-width: $grid-float-breakpoint - 1) {
+@media (max-width: 849px) {
     #sidebar {
     	display: none;
     }
   };
+  
+// fix main article float
+@media (min-width: 850px){
+	#main {
+		float: left;
+	}
+};
