@@ -26,7 +26,7 @@
 								<footer class="article-footer">
                   <div class="row">
 									<p class="tags pull-left col-xs-10"><?php printf( '<span class="">' . __( 'in %1$s&nbsp;&nbsp;', 'bonestheme' ) . '</span>', get_the_category_list(', ') ); ?> <?php the_tags( '<span class="tags-title">' . __( '<i class="icon-tags"></i>', 'bonestheme' ) . '</span> ', ', ', '' ); ?></p>
-                  <p class="commentnum pull-right col-xs-2"><a href="<?php comments_link(); ?>"><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a></p>
+                 <? /* <p class="commentnum pull-right col-xs-2"><a href="<?php comments_link(); ?>"><?php comments_number( 'no comments', '1 comment', '% comments' ); ?></a></p> */ ?>
 								  </div>
                 </footer> <?php // end article footer ?>
 
