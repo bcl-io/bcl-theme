@@ -116,7 +116,7 @@ function create_event_post_type() {
 			),
 			'has_archive' => false,
 			'public' => true,
-			'rewrite' => array('slug' => 'projects'),
+			'rewrite' => array('slug' => 'project'),
 			'taxonomies' => array('bcl_projects_category'),
 		//	'exclude_from_search' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'post-formats' ),
