@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+/*
+Template Name: Oubiopo
+*/
+
+get_header(); ?>
 
 <div class="page-header">
 	<h1><?php the_title(); ?></h1>
