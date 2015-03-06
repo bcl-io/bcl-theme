@@ -21,8 +21,13 @@
 								?></p>
 
 							</header> <?php // end article header ?>
-
+							
 							<section class="entry-content clearfix" itemprop="articleBody">
+<?php
+	$img_a = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large', true);
+	$url = $img_a[0];
+?>
+								<img src="<?php echo $url ?>" width="100%">
 								<?php the_content(); ?>
 							</section> <?php // end article section ?>
 
