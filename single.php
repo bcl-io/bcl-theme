@@ -26,7 +26,14 @@
 <?php
 
 $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'cinemascope', true);
-if ($img) { echo '<img class="featured" src="'.$img[0].'">'."\n"; }
+$imgObj = get_post( get_post_thumbnail_id() );
+
+if ($img) { 
+	echo '<div class="image">'."\n";
+	echo '<img src="'.$img[0].'">'."\n";
+	echo '<span>'.$imgObj->post_excerpt.'</span><br />'."\n";
+	echo '</div>'."\n";;
+}
 
 the_content(); 
 ?>

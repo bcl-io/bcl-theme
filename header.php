@@ -58,7 +58,7 @@
 	        </div>
 				  
 	        <div id="navbar" class="navbar-collapse collapse">
-				<?php bones_main_nav(); ?>
+				<?php bcl_main_nav(); ?>
 	        </div>
 	      </div>
 	    </nav>

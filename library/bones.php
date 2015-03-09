@@ -205,11 +205,11 @@ MENUS & NAVIGATION
 *********************/
 
 // the main menu
-function bones_main_nav() {
+function bcl_main_nav() {
 	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => false,                           // remove nav container
-    	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
+    	'container_class' => '',           // class of container (should you choose to use it)
     	'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
     	'menu_class' => 'nav navbar-nav navbar-right',  // adding custom nav class
     	'theme_location' => 'main-nav',                 // where it's located in the theme
