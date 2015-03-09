@@ -31,7 +31,7 @@ $imgObj = get_post( get_post_thumbnail_id() );
 if ($img) { 
 	echo '<div class="image">'."\n";
 	echo '<img src="'.$img[0].'">'."\n";
-	echo '<span>'.$imgObj->post_excerpt.'</span><br />'."\n";
+	if ($imgObj->post_excerpt) echo '<span>'.$imgObj->post_excerpt.'</span><br />'."\n";
 	echo '</div>'."\n";;
 }
 
