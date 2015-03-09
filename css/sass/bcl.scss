@@ -1,5 +1,7 @@
-// bcl
+
+// bcl overrides
 @import "bcl/variables";
+
 
 // Core variables and mixins
 @import "bootstrap/variables";
@@ -7,8 +9,8 @@
 
 // Reset and dependencies
 @import "bootstrap/normalize";
-@import "bootstrap/print";
-@import "bootstrap/glyphicons";
+//@import "bootstrap/print";
+//@import "bootstrap/glyphicons";
 
 // Core CSS
 @import "bootstrap/scaffolding";
@@ -51,3 +53,8 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+
+
+// bcl original
+@import "bcl/bcl";
+

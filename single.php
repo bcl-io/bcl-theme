@@ -22,14 +22,16 @@
 
 							</header> <?php // end article header ?>
 							
-							<section class="entry-content clearfix" itemprop="articleBody">
+<section class="entry-content clearfix" itemprop="articleBody">
 <?php
-	$img_a = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large', true);
-	$url = $img_a[0];
+
+$img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'cinemascope', true);
+if ($img) { echo '<img class="featured" src="'.$img[0].'">'."\n"; }
+
+the_content(); 
 ?>
-								<img src="<?php echo $url ?>" width="100%">
-								<?php the_content(); ?>
-							</section> <?php // end article section ?>
+
+</section> <?php // end article section ?>
 
 							<footer class="article-footer">
                   <p class="tags"><?php printf( '<span class="">' . __( 'in %1$s&nbsp;&nbsp;', 'bonestheme' ) . '</span>', get_the_category_list(', ') ); ?> <?php the_tags( '<span class="tags-title">' . __( '<i class="icon-tags"></i>', 'bonestheme' ) . '</span> ', ', ', '' ); ?></p>

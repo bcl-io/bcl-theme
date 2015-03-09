@@ -33,7 +33,7 @@ function bones_ahoy() {
     add_filter( 'gallery_style', 'bones_gallery_style' );
 
     // enqueue base scripts and styles
-    add_action( 'wp_enqueue_scripts', 'bones_scripts_and_styles', 999 );
+    add_action( 'wp_enqueue_scripts', 'bcl_scripts_and_styles', 999 );
     // ie conditional wrapper
 
     // launching this stuff after theme setup
@@ -116,34 +116,31 @@ function bones_gallery_style($css) {
 }
 
 
-/*********************
-SCRIPTS & ENQUEUEING
-*********************/
 
 // loading modernizr and jquery, and reply script
-function bones_scripts_and_styles() {
-  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-  //if (!is_admin()) {
+function bcl_scripts_and_styles() {
+	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+	//if (!is_admin()) {
 
 	 
-  	//JS
-      wp_enqueue_script('bcl-jquery', get_stylesheet_directory_uri() . '/js/jquery-2.1.0.min.js', array(), '2.1.0', false );
-      wp_enqueue_script('bcl-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array('bcl-jquery'), '2.5.3', false );
-      wp_enqueue_script('bones-js', get_stylesheet_directory_uri() . '/js/scripts.js', array('bcl-jquery'), '', false );
-  	wp_enqueue_script('bcl-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('bcl-jquery'), '3.3.2', false );
-  	wp_enqueue_script('bcl-masonry', get_stylesheet_directory_uri() . '/js/isotope.min.js', array(), '', false );
-  	wp_enqueue_script('bcl-js', get_stylesheet_directory_uri() . '/js/bcl.js', array('bcl-jquery', 'bcl-masonry'), '', false );
+	//JS
+	wp_enqueue_script('bcl-jquery', get_stylesheet_directory_uri() . '/js/jquery-2.1.0.min.js', array(), '2.1.0', false );
+	wp_enqueue_script('bcl-modernizr', get_stylesheet_directory_uri() . '/js/modernizr.custom.min.js', array('bcl-jquery'), '2.5.3', false );
+	wp_enqueue_script('bones-js', get_stylesheet_directory_uri() . '/js/scripts.js', array('bcl-jquery'), '', false );
+	wp_enqueue_script('bcl-bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('bcl-jquery'), '3.3.2', false );
+	wp_enqueue_script('bcl-masonry', get_stylesheet_directory_uri() . '/js/isotope.min.js', array(), '', false );
+	wp_enqueue_script('bcl-js', get_stylesheet_directory_uri() . '/js/bcl.js', array('bcl-jquery', 'bcl-masonry'), '', false );
 	
-    // Enqueue & load CSS
-	wp_enqueue_style('bcl-bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '3.3.2' );
-	wp_enqueue_style('bcl-addl', get_stylesheet_directory_uri() . '/css/bcl.css', array(), '3.3.2');
+	// Enqueue & load CSS
+//	wp_enqueue_style('bcl-bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '3.3.2' );
+//	wp_enqueue_style('bcl-addl', get_stylesheet_directory_uri() . '/css/bcl.css', array(), '3.3.2');
+	wp_enqueue_style('bcl-css', get_stylesheet_directory_uri() . '/css/bcl.css', array(), '3.3.2' );
 	wp_enqueue_style('font-awesome',get_stylesheet_directory_uri() . '/css/font-awesome.min.css',array(),'4.1');
 	
-	
-
-
 //  }
 }
+
+
 
 /*********************
 THEME SUPPORT
