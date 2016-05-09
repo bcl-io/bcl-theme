@@ -4859,7 +4859,8 @@ a, a:visited {
   text-decoration: none; }
 
 a:hover {
-  color: #00b4f1;
+	background: #00b4f1;
+  color: #fff;
   text-decoration: none; }
 
 a:active {
@@ -5183,3 +5184,18 @@ ul.small-list li {
   padding: 0 3px; }
 
 /*# sourceMappingURL=bcl.css.map */
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.logos {
+	padding-bottom: 40px;
+}
+.bha {
+	max-width: 700px;
+}
+.bha h3, .bha button {
+	margin-top: 2em;
+}
